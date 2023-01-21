@@ -1,0 +1,40 @@
+% 目次の参照先のページナンバリングが一意に定まる必要がある？
+
+\documentclass[titlepage]{jarticle}
+
+% 目次リンク生成
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+
+\title{タイトル}
+\author{著者}
+\date{\today}
+
+\begin{document}
+
+% 対処 1: タイトルに対して、ページナンバリング無し
+\pagenumbering{gobble}
+
+\maketitle
+
+% 対処 2: 目次に対して、ページナンバリング開始 (roman) (i, ii, ,,,)
+\pagenumbering{roman}
+
+\tableofcontents
+
+\newpage
+% 本文に対して、ページナンバリング再開 (arabic) (1, 2, ...)
+\pagenumbering{arabic}
+
+\section{Section 1}
+以下数式
+\[x^n + y^n = z^n.\]
+以上数式
+
+\newpage
+\section{Section 2}
+以下数式
+\[x^2 + y^2 = z^2.\]
+以上数式
+
+\end{document}
